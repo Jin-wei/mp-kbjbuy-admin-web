@@ -1,0 +1,25 @@
+<div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">banner列表</h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table id="data-table" class="table table-striped table-bordered">
+                    <thead>
+                    <tr style="white-space:nowrap">
+                        <th>序号</th>
+                        <th>推广的商品名</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="banner in bannerList" style="white-space:nowrap">
+                        <td ng-bind="$index+1"></td>
+                        <td ng-bind="banner.productName"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

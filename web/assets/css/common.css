@@ -1,0 +1,13 @@
+.c-content-label{
+    padding-top: 7px;
+    margin-bottom: 0;
+}
+
+.c-modal-body{
+    position: relative;
+    padding: 0px;
+}
+
+.detail-info label span{
+    color: dimgrey
+}

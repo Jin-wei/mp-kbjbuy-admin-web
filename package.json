@@ -1,0 +1,17 @@
+{
+"name": "jinjiecheng_admin_web",
+"version": "0.0.1",
+"dependencies": {
+"posix-getopt": "1.0.0",
+"restify": "4.0.3"
+},
+"devDependencies": {
+"grunt": "^0.4.5",
+"grunt-replace": "*"
+},
+"scripts": {
+"start": "node main.js"
+},
+"author": "mission public",
+"license": ""
+}

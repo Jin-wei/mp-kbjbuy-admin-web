@@ -1,0 +1,42 @@
+<!-- begin right-content -->
+<div class="right-content">
+    <!-- begin login-header -->
+    <div class="login-header">
+        <div class="brand">
+            <span><img src="{{staticContentURL}}/{{tenant}}/assets/images/logo2.png" width="40%"/></span> 用户登录
+            <small>欢迎使用{{'name' | translate}}管理平台</small>
+        </div>
+        <div class="icon">
+            <i class="fa fa-sign-in"></i>
+        </div>
+    </div>
+    <!-- end login-header -->
+    <!-- begin login-content -->
+    <div class="login-content">
+        <form class="margin-bottom-0">
+            <div class="form-group m-b-15">
+                <input type="text" class="form-control input-lg" placeholder="请输入用户名" ng-model="username"/>
+            </div>
+            <div class="form-group m-b-15">
+                <input type="password" class="form-control input-lg" placeholder="请输入密码" ng-model="password"/>
+            </div>
+            <div class="checkbox m-b-30">
+                <label>
+                    <!--<input type="checkbox" /> Remember Me-->
+                </label>
+            </div>
+            <div class="login-buttons">
+                <button type="submit" class="btn btn-success btn-block btn-lg" ng-click="onLogin()">登录</button>
+            </div>
+            <!--<div class="m-t-20 m-b-40 p-b-40">-->
+                <!--还没有账号? 请点击这里 <a href="#/register.html" class="text-success">注册</a> 一个新用户.-->
+            <!--</div>-->
+            <hr />
+            <p class="text-center text-inverse">
+                <!--&copy; Color Admin All Right Reserved 2016-->
+            </p>
+        </form>
+    </div>
+    <!-- end login-content -->
+</div>
+<!-- end right-container -->

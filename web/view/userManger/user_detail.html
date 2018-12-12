@@ -1,0 +1,232 @@
+<div>
+    <div>
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">姓名</label>
+                    <div class="col-md-8">
+                        <input type="text" disabled class="form-control" id="shipNum" ng-model="user.name"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">用户id</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="orderId" disabled ng-model="user.custId"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">创建时间</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" ng-model="user.createdOn"  disabled id="shipInfo"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4 control-label text-left">状态</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="userActiveId" ng-model="user.active">
+                            <option value="活跃">活跃</option>
+                            <option value="停用">停用</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">电话</label>
+                    <div class="col-md-8">
+                        <input type="text" disabled class="form-control" id="tel" ng-model="user.phoneNo"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">经销商</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="channel" ng-model="user.channelName">
+                            <option value="{{channel.bizName}}" ng-repeat="channel in channelList" ng-bind="channel.bizName"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">类型</label>
+                    <div class="col-md-8">
+                        <select class="form-control" ng-model="user.custType">
+                            <option value="个人">个人</option>
+                            <option value="商家">商家</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">商家名称</label>
+                    <div class="col-md-8">
+                        <input type="text" disabled class="form-control" ng-model="user.bizName"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-3">
+                    <label class="control-label col-md-5 text-left">连锁店名</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" ng-model="user.chainName"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-5">支付方式</label>
+                    <div class="col-md-7">
+                        <select  class="form-control" ng-model="user.supportPayLater" value="{{user.supportPayLater.toString()}}">
+                            <option value="1">货到付款</option>
+                            <option value="0">在线支付</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">成为用户时间</label>
+                    <div class="col-md-7 input-daterange">
+                        <input type="text" class="form-control" id="custSince" ng-model="user.custSince" value="{{user.custSince|dateFormat2}}"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-4 text-left">联系人</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" ng-model="user.contactName"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-3">
+                    <label class="control-label col-md-5 text-left">负责人</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" ng-model="user.ownerName"/>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label col-md-5 text-left">负责人电话</label>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" ng-model="user.ownerPhone"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-12">
+                    <div class="col-md-1">
+                        <label class="control-label">地址</label>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" id="province">
+                            <option id="{{'opt-p'+$index}}" value="{{$index}}" ng-repeat="a in addressArr" ng-bind="a.name"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" id='city' ng-model="user.city">
+                            <option value="{{city.name}}" ng-repeat="city in cityArr" ng-bind="city.name"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" id="address" ng-model="user.address"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-12">
+                    <label class="control-label col-md-1 text-left">备注</label>
+                    <div class="col-md-11">
+                        <textarea class="form-control" style="height: 60px;" ng-model="user.note">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align="right" style="margin-top: 20px">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-sm btn-success" ng-click="saveClick()">&nbsp;&nbsp;保&nbsp;&nbsp;存&nbsp;&nbsp;</button>
+                        <button type="submit" class="btn btn-sm btn-default" ng-click="cancleClick()">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="panel panel-info margin-top-30">
+        <!--<img style="width: 120px;height:40px;" ng-src="{{captcha}}">-->
+        <div class="panel-heading">
+            <h4 class="panel-title">查询结果</h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" style="max-height: 600px;">
+                <div class="btn-group pull-left" data-toggle="buttons" style="margin-top: 10px;margin-bottom: 0px;">
+                    <label class="btn btn-success btn-sm active" id="matchingBtn" ng-click="onSearch(1)">
+                        <input type="radio" name="options"/>&nbsp;订单历史&nbsp;
+                    </label>
+                    <label class="btn btn-success btn-sm" id="matchedBtn" ng-click="onSearch(2)">
+                        <input type="radio" name="options" />&nbsp;投诉历史&nbsp;
+                    </label>
+                    <label class="btn btn-success btn-sm" id="rejeckedBtn" ng-click="onSearch(3)">
+                        <input type="radio" name="options"/>&nbsp;常用地址&nbsp;
+                    </label>
+                </div>
+                <table id="data-table" ng-show="selectIndex == 1" class="table table-striped table-bordered table-center">
+                    <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>下单日期</th>
+                        <th>金额</th>
+                        <th>状态</th>
+                        <th>送达日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="order in orders">
+                        <td ng-bind="order.orderId"></td>
+                        <td ng-bind="order.createdOn"></td>
+                        <td ng-bind="order.orderAmount"></td>
+                        <td ng-bind="order.status"></td>
+                        <td></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-xs m-r-5" id="importExportId" href="" ng-click="detailClick($index)" data-toggle="modal">&nbsp;详&nbsp;情&nbsp;</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="complaint-history margin-top-60" ng-show="selectIndex == 2">
+                    <h1 class="table-center">模块建设中,敬请期待</h1>
+                </div>
+                <div class="complaint-history margin-top-60" ng-show="selectIndex == 3">
+                    <h1 class="table-center">模块建设中,敬请期待</h1>
+                </div>
+                <!--<div class="address" ng-show="selectIndex == 3">-->
+                    <!--<table id="" class="table table-striped table-bordered table-center">-->
+                        <!--<thead>-->
+                        <!--<tr>-->
+                            <!--<th>默认</th>-->
+                            <!--<th>收货人</th>-->
+                            <!--<th>手机号</th>-->
+                            <!--<th>省</th>-->
+                            <!--<th>市</th>-->
+                            <!--<th>地址</th>-->
+                            <!--<th>操作</th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr>-->
+                            <!--<td></td>-->
+                            <!--<td>王晓佳</td>-->
+                            <!--<td>12212341234</td>-->
+                            <!--<td>广东</td>-->
+                            <!--<td>珠海市</td>-->
+                            <!--<td>高新区,迎宾路359号</td>-->
+                            <!--<td>-->
+                                <!--<button type="submit" class="btn btn-primary btn-xs m-r-5" id="" href="" ng-click="" data-toggle="modal">&nbsp;详&nbsp;情&nbsp;</button>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                <!--</div>-->
+            </div>
+            <div align="right">
+                <button type="button" class="btn btn-white disabled" id="preBtn" ng-click="prePage()" disabled><span style="color: #2aabd2">上一页</span></button>
+                <button type="button" class="btn btn-white" id="nextBtn" ng-click="nextPage()" ><span style="color: #2aabd2">下一页</span></button>
+            </div>
+        </div>
+    </div>
+</div>

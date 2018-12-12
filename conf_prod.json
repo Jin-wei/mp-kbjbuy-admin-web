@@ -1,0 +1,11 @@
+{
+  "imageApi":"http://39.105.213.26:18093/api",
+  "loginApi":"http://39.105.213.26:18091/api",
+  "orderApi": "http://39.105.213.26:16667/api",
+  "productApi": "http://39.105.213.26:16668/api",
+  "bizApi": "http://39.105.213.26:16669/api",
+  "cmsApi": "http://39.105.213.26:8097/api",
+  "channelAdminRoleId": "4",
+  "defaultTenant":"jjc",
+  "staticContentURL":"http://tenant.statics.pinmudo.com/admin"
+}

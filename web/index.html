@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="admin_module" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="admin_module" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="admin_module" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="admin_module" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title id="html-title"></title>
+    <link rel="shortcut icon" ng-href="{{staticContentURL}}/{{tenant}}/assets/images/favicon.ico"/>
+    <meta name="description" content="">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <link href="assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/plugins/bootstrap-select/bootstrap-select.css" rel="stylesheet" />
+    <link href="assets/plugins/jquery-ui/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/color_admin/css/style.min.css" rel="stylesheet">
+    <link href="assets/color_admin/css/style-responsive.css" rel="stylesheet">
+    <link href="assets/color_admin/css/animate.min.css" rel="stylesheet">
+    <link href="assets/color_admin/css/theme/default.css" rel="stylesheet">
+
+    <link href="assets/css/common.css" rel="stylesheet">
+
+    <!-- ================== BEGIN TABLE STYLE ================== -->
+    <link href="assets/plugins/DataTables/media/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.css" rel="stylesheet" />
+    <!-- ================== END TABLE STYLE ================== -->
+
+    <!-- ================== BEGIN IMAGES SHOW STYLE ================== -->
+    <link href="assets/plugins/isotope/isotope.css" rel="stylesheet" />
+    <link href="assets/plugins/lightbox/css/lightbox.css" rel="stylesheet" />
+    <!-- ================== END IMAGES SHOW STYLE ================== -->
+    <link href="./css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/plugins/lightBox2/css/lightbox.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/select2/dist/css/select2.min.css">
+    <!--wangEditor-->
+    <link rel="stylesheet" href="./assets/plugins/wangEditor/css/wangEditor.min.css">
+</head>
+<body>
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed in">
+    <header></header>
+    <!-- begin #sidebar -->
+    <div id="sidebar" class="sidebar">
+        <!-- begin sidebar scrollbar -->
+        <div id="menuId" data-scrollbar="true" data-height="100%">
+            <!-- begin sidebar user -->
+            <ul class="nav">
+                <li class="nav-profile">
+                    <div class="image">
+                        <a href="javascript:;"><img src="../assets/img/user-13.jpg" alt="" /></a>
+                    </div>
+                    <div class="info" ng-bind="loginUserName">
+                        <small>欢迎使用后台管理系统</small>
+                    </div>
+                </li>
+            </ul>
+            <!-- end sidebar user -->
+            <!-- begin sidebar nav -->
+            <ul class="nav">
+                <li id="productMenu" class="has-sub" ng-if="('product-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>商品管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="productMenu1" class=""><a href="#/product_list">商品列表</a></li>
+                    </ul>
+                </li>
+                <li id="userMenu" class="has-sub" ng-if="('user-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-inbox"></i>
+                        <span>客户管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="userMenu1"><a href="#/userManger">用户列表</a></li>
+
+                    </ul>
+                </li>
+                <li id="channelMenu" class="has-sub" ng-if="('channel-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-suitcase"></i>
+                        <span>经销商管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="channelMenu1"><a href="#/channelManger">经销商列表</a></li>
+                    </ul>
+                </li>
+                <li id="providerMenu" class="has-sub" ng-if="('provider-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-suitcase"></i>
+                        <span>供应商管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="providerMenu1"><a href="#/providerList">供应商列表</a></li>
+                    </ul>
+                </li>
+
+                <!--<li id="priceMenu"  class="has-sub">-->
+                    <!--<a href="javascript:;">-->
+                        <!--<b class="caret pull-right"></b>-->
+                        <!--<i class="fa fa-file-o"></i>-->
+                        <!--<span>价格管理</span>-->
+                    <!--</a>-->
+                    <!--<ul class="sub-menu">-->
+                        <!--<li id="priceMenu1"><a href="#/priceManger">价格列表</a></li>-->
+
+                    <!--</ul>-->
+                <!--</li>-->
+                <li id="orderMenu" class="has-sub" ng-if="('order-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-laptop"></i>
+                        <span>订单管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="orderMenu1"><a href="#/order_list">完成订单</a></li>
+                        <!--<li id="orderMenu2"><a href="javascript:;">异常订单</a></li>-->
+                    </ul>
+                </li>
+                <li id="opurchaseMenu" class="has-sub" ng-if="('opurchase-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-laptop"></i>
+                        <span>采购单管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#/purchaseList">采购单列表</a></li>
+                    </ul>
+                </li>
+                <li id="complainMenu" class="has-sub" ng-if="('complain-menu' | translate)!='false'">
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-file-o"></i>
+                        <span>投诉管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li id="complainMenu1"><a href="javascript:;">投诉列表</a></li>
+                    </ul>
+                </li>
+                <li id="contentMenu" class="has-sub" >
+                    <a href="javascript:;">
+                        <b class="caret pull-right"></b>
+                        <i class="fa fa-tasks"></i>
+                        <span>内容管理</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li ng-if="('contentMenuShow' | translate)==='true'" id="encyclopediaCategory"><a href="#/encyclopediaCategory">咖啡百科分类管理</a></li>
+                        <li ng-if="('contentMenuShow' | translate)==='true'" id="baikeEdite"><a href="#/encyclopediaList">咖啡百科编辑发布</a></li>
+                        <li ng-if="('footerContentMenuShow' | translate)==='true'" id="footerList"><a href="#/footerList">底部导航内容编辑发布</a></li>
+                    </ul>
+                </li>
+                <!-- begin sidebar minify button -->
+                <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+                <!-- end sidebar minify button -->
+            </ul>
+            <!-- end sidebar nav -->
+            <div class="sidebar-bottom">
+                <p>{{'footer-1' | translate}}</p>
+                <p>{{'footer-2' | translate}}</p>
+            </div>
+        </div>
+        <!-- end sidebar scrollbar -->
+    </div>
+    <!--<div class="sidebar-bg"></div>-->
+    <!-- end #sidebar -->
+
+    <!-- begin scroll to top btn -->
+    <!--<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>-->
+    <!-- end scroll to top btn -->
+    <div id="content" class="content" ng-view></div>
+</div>
+
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.form.js"></script>
+<script src="assets/plugins/jquery-ui/js/jquery-ui.min.js"></script>
+<script src="assets/plugins/jquery-ui/js/jquery-migrate.min.js"></script>
+<script src="assets/plugins/pace/js/pace.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+
+<!--[if lt IE 9]>
+<script src="assets/plugins/crossbrowserjs/html5shiv.js"></script>
+<script src="assets/plugins/crossbrowserjs/respond.min.js"></script>
+<script src="assets/plugins/crossbrowserjs/excanvas.min.js"></script>
+<![endif]-->
+<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="assets/js/apps.js"></script>
+<script src="assets/plugins/angular/angular.js"></script>
+<script src="assets/js/jquery.cookie.min.js"></script>
+<script src="assets/plugins/angular/angular-route.min.js"></script>
+<script src="assets/plugins/angular-file-upload/angular-file-upload.min.js"></script>
+
+<script src="assets/js/apps.min.js"></script>
+<script src="assets/js/form-plugins.demo.js"></script>
+<script src="assets/js/lrz.bundle.js"></script>
+
+<!-- ================== BEGIN TABLE JS ================== -->
+<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.js"></script>
+<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.js"></script>
+<script src="assets/js/table-manage-default.demo.js"></script>
+<script src="assets/js/table-manage-fixed-columns.demo.js"></script>
+<script src=""></script>
+<!-- ================== END TABLE JS ================== -->
+
+<!-- ================== BEGIN IMAGES SHOW JS ================== -->
+<script src="assets/js/gallery.demo.js"></script>
+<!-- ================== END IMAGES SHOW JS ================== -->
+
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=55869f6725757d167d4f3fe0524e359e"></script>
+<script src="assets/plugins/lightBox2/js/lightbox.min.js"></script>
+<script src="assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="assets/plugins/angular-translate/angular-translate.min.js"></script>
+<script src="assets/plugins/angular-translate/angular-translate-loader-static-files.min.js"></script>
+
+<script src="assets/plugins/select2/dist/js/select2.full.js"></script>
+<script src="assets/plugins/select2/dist/js/i18n/zh-CN.js"></script>
+<script src="assets/plugins/select2/dist/js/i18n/en.js"></script>
+<!--wangEditor-->
+<script src="./assets/plugins/wangEditor/js/wangEditor.min.js"></script>
+
+<!--Server-->
+<script src="config/System_Config.js"></script>
+<script src="module/admin_module.js"></script>
+<script src="service/route_service.js"></script>
+<script src="service/base_service.js"></script>
+<script src="service/host_service.js"></script>
+<script src="service/http_service.js"></script>
+<script src="service/directive_service.js"></script>
+<script src="service/filter_service.js"></script>
+<script src="service/config_service.js"></script>
+<script src="controller/order_controller.js"></script>
+<script src="controller/order_detail_controller.js"></script>
+<script src="controller/product_controller.js"></script>
+<script src="controller/product_detail_controller.js"></script>
+<script src="controller/product_editor_controller.js"></script>
+<script src="controller/category_list_controller.js"></script>
+<script src="controller/user_controller.js"></script>
+<script src="controller/user_detail_controller.js"></script>
+<script src="controller/channel_controller.js"></script>
+<script src="controller/price_controller.js"></script>
+<script src="controller/add_user_controller.js"></script>
+<script src="controller/add_channel_controller.js"></script>
+<script src="controller/dealer_detail_controller.js"></script>
+<script src="controller/provider_list_controller.js"></script>
+<script src="controller/provider_detail_controller.js"></script>
+<script src="controller/update_type_controller.js"></script>
+<script src="controller/banner_list_controller.js"></script>
+<script src="controller/category_add_controller.js"></script>
+<script src="controller/purchase_list_controller.js"></script>
+<script src="controller/purchase_detail_controller.js"></script>
+<script src="controller/encyclopedia_category_controller.js"></script>
+<script src="controller/encyclopedia_list_controller.js"></script>
+<script src="controller/encyclopedia_editor_list_controller.js"></script>
+<script src="controller/footer_list_controller.js"></script>
+<script src="controller/footer_editor_controller.js"></script>
+<script src="./controller/login_controller.js"></script>
+
+<script>
+    $(document).ready(function() {
+        FormPlugins.init();
+    });
+</script>
+</html>

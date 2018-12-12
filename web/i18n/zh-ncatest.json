@@ -1,0 +1,32 @@
+{
+    "name": "乐宜嘉",
+    "html-title":"乐宜嘉商城管理后台",
+    "html-description":"乐宜嘉",
+    "footer-1":"©2018 乐宜嘉家居集团有限公司",
+    "footer-2":"& 版权所有 粤ICP备17098231号",
+
+    "product-menu":"true",
+    "user-menu":"false",
+    "channel-menu":"false",
+    "provider-menu":"false",
+    "order-menu":"false",
+    "opurchase-menu":"false",
+    "complain-menu":"false",
+
+    "product-code-label":"商品编号",
+    "product-price-label":"单价",
+    "product-wholesale-price-show":"false",
+    "product-floor-price-show":"false",
+    "product-factory-show":"false",
+    "product-recommend-show":"false",
+    "product-min-purchase-quantity-show":"false",
+    "product-tax-show":"false",
+    "product-transport-fee-show":"false",
+    "product-tax-included-show":"false",
+
+    "product-List-import-btn-show":"false",
+    "product-List-export-btn-show":"false",
+    "product-List-factory-search-show":"false"
+
+
+}

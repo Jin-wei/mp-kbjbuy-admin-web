@@ -1,0 +1,103 @@
+<div>
+    <div>
+        <form class="form-horizontal">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="control-label col-md-3" style="text-align: left">订单号</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="orderId"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label col-md-4" style="text-align: left">客户姓名</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="userName"/>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label class="control-label col-md-4 text-left">经销商</label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="channel">
+                            <option value="">全部</option>
+                            <option value="{{channel.bizName}}" ng-repeat="channel in channelList" ng-bind="channel.bizName"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-15">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <label class="col-md-3 control-label" style="text-align: left">提交时间</label>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="startDate2" name="start" placeholder="开始日期" />
+                                    <span class="input-group-addon">-</span>
+                                    <input type="text" class="form-control" id="endDate2" name="end" placeholder="截至日期" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" align="right">
+                    <button type="submit" class="btn btn-sm btn-success" ng-click="searchClick()">&nbsp;&nbsp;搜&nbsp;&nbsp;索&nbsp;&nbsp;</button>
+                    <button type="submit" class="btn btn-sm btn-default" style="margin-left: 10px;" ng-click="onReset()">&nbsp;&nbsp;重&nbsp;&nbsp;置&nbsp;&nbsp;</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="panel panel-info" style="margin-top: 10px;">
+        <!--<img style="width: 120px;height:40px;" ng-src="{{captcha}}">-->
+        <div class="panel-heading">
+            <h4 class="panel-title">查询结果</h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive" style="max-height: 600px;">
+                <div class="btn-group pull-left" data-toggle="buttons" style="margin-top: 10px;margin-bottom: 0px;">
+                    <label class="btn btn-success btn-sm" id="finishedBtn" ng-click="onSearch(1)">
+                        <input type="radio" name="options"/>&nbsp;活跃&nbsp;
+                    </label>
+                    <label class="btn btn-success btn-sm" id="cancelBtn" ng-click="onSearch(2)">
+                        <input type="radio" name="options"/>&nbsp;历史&nbsp;
+                    </label>
+                    <label class="btn btn-success btn-sm" id="allBtn" ng-click="onSearch(3)">
+                        <input type="radio" name="options" />&nbsp;全部&nbsp;
+                    </label>
+                </div>
+                <table id="data-table" class="table table-striped table-bordered table-center">
+                    <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>客户名</th>
+                        <th>收货人</th>
+                        <th>总额</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                        <th>经销商</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="order in nowArr">
+                        <td ng-bind="order.orderId"></td>
+                        <td ng-bind="order.userName"></td>
+                        <td ng-bind="order.name"></td>
+                        <td ng-bind="order.orderAmount"></td>
+                        <td ng-bind="order.status"></td>
+                        <td ng-bind="order.createdOn"></td>
+                        <td ng-bind="order.bizName"></td>
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-xs m-r-5" id="importExportId" href="" ng-click="detailClick(order.orderId)" data-toggle="modal">&nbsp;详&nbsp;情&nbsp;</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div align="right" style="margin-top: 10px;padding-bottom: 10px;">
+                <table-page></table-page>
+            </div>
+        </div>
+    </div>
+</div>

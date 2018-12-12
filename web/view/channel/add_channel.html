@@ -1,0 +1,81 @@
+
+<div>
+    <div class="panel panel-info" style="padding-bottom: 20px">
+        <div class="panel-heading">
+            <h4 class="panel-title">添加商家</h4>
+        </div>
+        <div>
+            <form class="form-horizontal" style="margin-top: 20px">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label col-md-4">商家名称</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="name" ng-model="name" placeholder="请输入经销商名字"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label col-md-4">负责人</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="person" ng-model="person" placeholder="请输入负责人"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="control-label col-md-4">手机号</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="phone" ng-model="phone" maxlength="11"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px; padding-left: 30px">
+                    <div class="col-md-9" >
+                        <div class="col-md-1">
+                            <label class="control-label">地址</label>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control" id="province" ng-model="province" ng-change="proviceChanged()">
+                                <option ng-repeat="a in addressArr" value="{{a.name}}" ng-bind="a.name"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select class="form-control" id="city" ng-model="city">
+                                <option ng-repeat="c in cityArr" value="{{c.name}}" ng-bind="c.name"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="address" ng-model="address" placeholder="请输入详细地址"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="row" style="margin-top: 20px">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<label class="control-label col-md-3">省</label>-->
+                        <!--<div class="col-md-9">-->
+                            <!--<input type="text" class="form-control" id="province" ng-model="province" placeholder="省"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row" style="margin-top: 20px">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<label class="control-label col-md-3">市</label>-->
+                        <!--<div class="col-md-9">-->
+                            <!--<input type="text" class="form-control" id="city" ng-model="city" placeholder="市"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6">-->
+                        <!--<label class="control-label col-md-3">详细地址</label>-->
+                        <!--<div class="col-md-9">-->
+                            <!--<input type="text" class="form-control" id="address" ng-model="address" placeholder="详细地址"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="form-group" align="right" style="margin-right: 20px;margin-top: 20px">
+                    <a class="btn btn-sm btn-default" href="#/channelManger" style="margin-left: 10px;">返回</a>
+                    <button type="submit" class="btn btn-sm btn-success" ng-click="addDealer()" style="margin-left: 10px;">发布</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
